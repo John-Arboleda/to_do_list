@@ -1,6 +1,6 @@
 body {
   background-color: #f6f6f6;
-  font-family: 'Open Sans', 'Lucida Grande', tahoma, verdana, arial, sans-serif;
+  font-family: "Open Sans", "Lucida Grande", tahoma, verdana, arial, sans-serif;
   font-weight: 300;
   font-size: 1rem;
 }
@@ -11,7 +11,7 @@ main {
   width: 500px;
   box-sizing: border-box;
   border-radius: 3px;
-  box-shadow: 0px 2px 8px rgb(0 0 0 / 15%);
+  box-shadow: 0 2px 8px rgb(0 0 0 / 15%);
   margin: auto;
   margin-top: 200px;
 }
@@ -27,9 +27,8 @@ main {
   position: relative;
   background-color: #fff;
   padding: 15px;
-  border-bottom: 1px solid rgba(0,0,0,0.08);
+  border-bottom: 1px solid rgb(0 0 0 / 8%);
   font-weight: 300;
-  /* height: 50px; */
 }
 
 .clear-link-container {
@@ -38,7 +37,7 @@ main {
 
 .list-div > input {
   border: none;
-  background-color: rgba(255, 255, 255, 0);
+  background-color: rgb(255 255 255 / 0%);
 }
 
 ::placeholder {
@@ -46,6 +45,6 @@ main {
   font-size: 1rem;
 }
 
-input:focus{
+input:focus {
   outline: none;
 }
