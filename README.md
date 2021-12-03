@@ -1,24 +1,15 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Awesome books
+# ToDo List
 
-> In this project, a basic website that allows users to add/remove books from a list is implemented. This is achieve  by using JavaScript objects and arrays. The DOM is modified dynamically and add basic events.
-
-![screenshot](./assets/basicUI.PNG)
+> "To-do list" is a tool that helps to organize your day. It simply lists the things that you need to do and allows you to mark them as complete. In this project a simple website that allows for doing that is build using ES6 and Webpack!
 
 ## Built With
 
 - HTML
 - JavaScript
 
-## Authors
-
-👤 **Author1**
-
-- GitHub: [@franklinben23](https://github.com/franklinben23)
-- Twitter: [@franklin2302](https://twitter.com/franklin2302)
-
-👤 **Author2**
+## Author
 
 - GitHub: [@John-Arboleda](https://github.com/John-Arboleda)
 - Twitter: [@John_J_Arboleda](https://twitter.com/John_J_Arboleda)
