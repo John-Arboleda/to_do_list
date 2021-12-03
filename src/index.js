@@ -1,13 +1,35 @@
+/* eslint-disable-next-line no-unused-vars */
 import _ from 'lodash';
+import './reset.css';
+import './style.css';
+import ToDoList from './toDo.js';
+import fakeList from './fakeList.js';
 
-function component() {
-  const element = document.createElement('div');
+const toDoList = new ToDoList();
 
-  // Lodash, now imported by this script
-  element.innerHTML = _.join(['Hello', 'webpack'], ' ');
-
-  return element;
+function populate(aList) {
+  aList.forEach((task) => {
+    const newTask = toDoList.createTask(task.description);
+    toDoList.addTask(newTask);
+  });
 }
 
-document.body.appendChild(component());
-index.html
+document.querySelector('#add-item').addEventListener('keypress', (e) => {
+  if (e.key === 'Enter') {
+    const description = document.getElementById('add-item');
+    const task = toDoList.createTask(description.value);
+    toDoList.addTask(task);
+    localStorage.setItem('toDoList', JSON.stringify(toDoList.data));
+    description.value = '';
+  }
+});
+
+window.onload = () => {
+  toDoList.data = JSON.parse(localStorage.getItem('toDoList' || '[]'));
+  if (toDoList.data === null) {
+    toDoList.data = [];
+    populate(fakeList);
+    return;
+  }
+  toDoList.displayList();
+};
