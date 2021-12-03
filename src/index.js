@@ -3,7 +3,6 @@ import _ from 'lodash';
 import './reset.css';
 import './style.css';
 import ToDoList from './toDo.js';
-import fakeList from './fakeList.js';
 
 const toDoList = new ToDoList();
 
