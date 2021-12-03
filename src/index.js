@@ -9,16 +9,16 @@ const toDoList = new ToDoList();
 
 function populate(aList) {
   aList.forEach((task) => {
-    const newTask = toDoList.create_task(task.description);
-    toDoList.add_task(newTask);
+    const newTask = toDoList.createTask(task.description);
+    toDoList.addTask(newTask);
   });
 }
 
 document.querySelector('#add-item').addEventListener('keypress', (e) => {
   if (e.key === 'Enter') {
     const description = document.getElementById('add-item');
-    const task = toDoList.create_task(description.value);
-    toDoList.add_task(task);
+    const task = toDoList.createTask(description.value);
+    toDoList.addTask(task);
     localStorage.setItem('toDoList', JSON.stringify(toDoList.data));
     description.value = '';
   }
@@ -31,5 +31,5 @@ window.onload = () => {
     populate(fakeList);
     return;
   }
-  toDoList.display_list();
+  toDoList.displayList();
 };

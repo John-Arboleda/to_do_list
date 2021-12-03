@@ -3,7 +3,7 @@ class ToDoList {
     this.data = [];
   }
 
-  create_task(description) {
+  createTask(description) {
     const task = {};
     task.description = description;
     task.completed = false;
@@ -18,7 +18,7 @@ class ToDoList {
   }
 
   /* eslint-disable-next-line class-methods-use-this */
-  display_task(taskObj) {
+  displayTask(taskObj) {
     const taskList = document.getElementById('main-list');
     const task = document.createElement('LI');
     if (taskObj.completed) {
@@ -32,15 +32,15 @@ class ToDoList {
     taskList.appendChild(task);
   }
 
-  add_task(task) {
+  addTask(task) {
     this.data.push(task);
     localStorage.setItem('toDoList', JSON.stringify(this.data));
-    this.display_task(task);
+    this.displayTask(task);
   }
 
-  display_list() {
+  displayList() {
     this.data.forEach((task) => {
-      this.display_task(task);
+      this.displayTask(task);
     });
   }
 }
