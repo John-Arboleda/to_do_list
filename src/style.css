@@ -31,16 +31,24 @@ main {
   font-weight: 300;
 }
 
+#main-list li:hover {
+  background-color: lightyellow;
+}
+
 .clear-link-container {
   text-align: center;
 }
 
-.list-div > input {
+.list-div > input, .input-description {
   border: none;
   background-color: rgb(255 255 255 / 0%);
 }
 
-::placeholder {
+.input-description {
+  font-size: 1rem;
+}
+
+::placeholder, .input-description:focus {
   font-style: italic;
   font-size: 1rem;
 }
