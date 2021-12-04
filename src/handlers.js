@@ -1,10 +1,8 @@
-function removeItem (taskObj, oldList) {
-  //const newList = new ToDoList();
+function removeItem(taskObj, oldList) {
   const updatedList = [];
   let count = 1;
-  oldList.filter((task) => {
-    if (task.index != taskObj.index){ 
-      //const newTask = newList.createTask(description.value);
+  oldList.forEach((task) => {
+    if (task.index !== taskObj.index) {
       task.index = count;
       updatedList.push(task);
       count += 1;

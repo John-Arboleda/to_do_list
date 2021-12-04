@@ -1,4 +1,4 @@
-import removeItem from './handlers.js'
+import removeItem from './handlers.js';
 
 class ToDoList {
   constructor() {
@@ -27,9 +27,9 @@ class ToDoList {
     task.innerHTML = `<label><input type="checkbox" ${taskObj.completed ? 'checked' : ''}">
       ${taskObj.description}</label><div><button class="deleteBtn">&#128465</button></div>`;
     task.classList.add('task-item');
-    task.setAttribute('id',taskId);
+    task.setAttribute('id', taskId);
     taskList.appendChild(task);
-    const checkbox = document.querySelector("#" + taskId + " label input");
+    const checkbox = document.querySelector(`#${taskId} label input`);
     const self = this;
     checkbox.addEventListener('change', function () {
       if (this.checked) {
@@ -39,8 +39,8 @@ class ToDoList {
       }
       self.updateTask(taskObj);
     });
-    const deleteBtn = document.querySelector("#" + taskId + " div button");
-    deleteBtn.addEventListener('click', function() {
+    const deleteBtn = document.querySelector(`#${taskId} div button`);
+    deleteBtn.addEventListener('click', () => {
       self.data = removeItem(taskObj, self.data);
       localStorage.setItem('toDoList', JSON.stringify(self.data));
       taskList.innerHTML = '';

@@ -3,7 +3,7 @@ import _ from 'lodash';
 import './reset.css';
 import './style.css';
 import ToDoList from './toDo.js';
-import removeItem from './handlers.js'
+import removeItem from './handlers.js';
 
 const toDoList = new ToDoList();
 
@@ -17,17 +17,17 @@ document.querySelector('#add-item').addEventListener('keypress', (e) => {
   }
 });
 
-document.querySelector('#delete-all').addEventListener('click', function() {
+document.querySelector('#delete-all').addEventListener('click', () => {
   toDoList.data.forEach((task) => {
-    if (task.completed){ 
+    if (task.completed) {
       toDoList.data = removeItem(task, toDoList.data);
       localStorage.setItem('toDoList', JSON.stringify(toDoList.data));
       const taskList = document.getElementById('main-list');
       taskList.innerHTML = '';
       toDoList.displayList();
     }
-  })
-})
+  });
+});
 
 window.onload = () => {
   toDoList.data = JSON.parse(localStorage.getItem('toDoList' || '[]'));

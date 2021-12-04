@@ -26,7 +26,7 @@ main {
 #main-list li {
   position: relative;
   background-color: #fff;
-  padding: 15px;
+  padding: 10px;
   border-bottom: 1px solid rgb(0 0 0 / 8%);
   font-weight: 300;
 }
@@ -52,6 +52,7 @@ input:focus {
 .task-item {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .deleteBtn {
