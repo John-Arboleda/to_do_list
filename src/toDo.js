@@ -28,7 +28,7 @@ class ToDoList {
     taskList.appendChild(task);
     const checkbox = document.getElementById(taskId);
     const self = this;
-    checkbox.addEventListener('change', () => {
+    checkbox.addEventListener('change', function () {
       if (this.checked) {
         taskObj.completed = true;
       } else {
