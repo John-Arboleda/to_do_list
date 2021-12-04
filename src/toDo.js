@@ -24,9 +24,9 @@ class ToDoList {
     const taskList = document.getElementById('main-list');
     const task = document.createElement('LI');
     const taskId = `cont${taskObj.index}`;
-    task.innerHTML = `<div><input type="checkbox" class="checkbox"${taskObj.completed ? 'checked' : ''}">
+    task.innerHTML = `<div><input type="checkbox" class="checkbox" ${taskObj.completed ? 'checked' : ''}>
       <input type="input" value="${taskObj.description}" class="input-description"></div>
-      <div><button class="deleteBtn">&#128465</button></div>`;
+      <div><button class="delete-btn">&#128465</button></div>`;
     task.classList.add('task-item');
     task.setAttribute('id', taskId);
     taskList.appendChild(task);
