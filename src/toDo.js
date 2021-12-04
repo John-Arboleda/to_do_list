@@ -21,15 +21,21 @@ class ToDoList {
   displayTask(taskObj) {
     const taskList = document.getElementById('main-list');
     const task = document.createElement('LI');
-    if (taskObj.completed) {
-      task.innerHTML = `<label><input type="checkbox" checked id="cbox${taskObj.index}
-      ">${taskObj.description}</label>`;
-    } else {
-      task.innerHTML = `<label><input type="checkbox" id="cbox${taskObj.index}
-      ">${taskObj.description}</label>`;
-    }
+    const taskId = `cbox${taskObj.index}`;
+    task.innerHTML = `<label><input type="checkbox" ${taskObj.completed ? 'checked' : ''} 
+      id="${taskId}">${taskObj.description}</label>`;
     task.classList.add('task-item');
     taskList.appendChild(task);
+    const checkbox = document.getElementById(taskId);
+    const self = this;
+    checkbox.addEventListener('change', function () {
+      if (this.checked) {
+        taskObj.completed = true;
+      } else {
+        taskObj.completed = false;
+      }
+      self.updateTask(taskObj);
+    });
   }
 
   addTask(task) {
@@ -42,6 +48,12 @@ class ToDoList {
     this.data.forEach((task) => {
       this.displayTask(task);
     });
+  }
+
+  updateTask(taskObj) {
+    const taskIndex = this.data.findIndex((task) => task.index === taskObj.index);
+    this.data[taskIndex] = taskObj;
+    localStorage.setItem('toDoList', JSON.stringify(this.data));
   }
 }
 
