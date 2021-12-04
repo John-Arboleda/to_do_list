@@ -13,7 +13,7 @@ main {
   border-radius: 3px;
   box-shadow: 0 2px 8px rgb(0 0 0 / 15%);
   margin: auto;
-  margin-top: 200px;
+  margin-top: 100px;
 }
 
 .list-div {
@@ -47,4 +47,13 @@ main {
 
 input:focus {
   outline: none;
+}
+
+.task-item {
+  display: flex;
+  justify-content: space-between;
+}
+
+.deleteBtn {
+  font-size: 20px;
 }
