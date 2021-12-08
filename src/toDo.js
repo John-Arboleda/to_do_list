@@ -1,4 +1,4 @@
-import removeItem from './handlers.js';
+import handlers from './handlers.js';
 
 class ToDoList {
   constructor() {
@@ -10,27 +10,16 @@ class ToDoList {
     task.description = description;
     task.completed = false;
     if (this.data.length > 0) {
-      const lastItem = this.data[this.data.length - 1];
-      const lastIndex = lastItem.index;
-      task.index = lastIndex + 1;
+      task.index = this.data.length + 1;
     } else {
       task.index = 1;
     }
     return task;
   }
 
-  /* eslint-disable-next-line class-methods-use-this */
   displayTask(taskObj) {
-    const taskList = document.getElementById('main-list');
-    const task = document.createElement('LI');
-    const taskId = `cont${taskObj.index}`;
-    task.innerHTML = `<div><input type="checkbox" class="checkbox" ${taskObj.completed ? 'checked' : ''}>
-      <input type="input" value="${taskObj.description}" class="input-description"></div>
-      <div><button class="delete-btn">&#128465</button></div>`;
-    task.classList.add('task-item');
-    task.setAttribute('id', taskId);
-    taskList.appendChild(task);
-    const checkbox = document.querySelector(`#${taskId} .checkbox`);
+    handlers.newTask(taskObj);
+    const checkbox = document.querySelector(`#cont${taskObj.index} .checkbox`);
     const self = this;
     checkbox.addEventListener('change', function () {
       if (this.checked) {
@@ -40,20 +29,17 @@ class ToDoList {
       }
       self.updateList(taskObj);
     });
-    const deleteBtn = document.querySelector(`#${taskId} div button`);
+    const deleteBtn = document.querySelector(`#cont${taskObj.index} div button`);
     deleteBtn.addEventListener('click', () => {
-      self.data = removeItem(taskObj, self.data);
-      localStorage.setItem('toDoList', JSON.stringify(self.data));
-      taskList.innerHTML = '';
+      self.data = handlers.removeItem(taskObj, self.data);
       self.displayList();
     });
-    const inputDescription = document.querySelector(`#${taskId} .input-description`);
+    const inputDescription = document.querySelector(`#cont${taskObj.index} .input-description`);
     inputDescription.addEventListener('keypress', (e) => {
       if (e.key === 'Enter') {
         taskObj.description = inputDescription.value;
         self.updateList(taskObj);
-        localStorage.setItem('toDoList', JSON.stringify(self.data));
-        taskList.innerHTML = '';
+        handlers.taskList.innerHTML = '';
         self.displayList();
       }
     });
@@ -61,7 +47,7 @@ class ToDoList {
 
   addTask(task) {
     this.data.push(task);
-    localStorage.setItem('toDoList', JSON.stringify(this.data));
+    handlers.saveLocalSorage(this.data);
     this.displayTask(task);
   }
 
@@ -74,7 +60,7 @@ class ToDoList {
   updateList(taskObj) {
     const taskIndex = this.data.findIndex((task) => task.index === taskObj.index);
     this.data[taskIndex] = taskObj;
-    localStorage.setItem('toDoList', JSON.stringify(this.data));
+    handlers.saveLocalSorage(this.data);
   }
 }
 
