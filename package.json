@@ -6,7 +6,11 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack serve --open",
-    "build": "webpack"
+    "build": "webpack",
+    "webhint": "npx hint .",
+    "stylelint": "npx stylelint \"**/*.{css,scss}\" --fix",
+    "eslint": "npx eslint . --fix",
+    "deploy": "gh-pages -d dist"
   },
   "keywords": [],
   "author": "",

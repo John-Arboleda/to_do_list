@@ -1,5 +1,3 @@
-/* eslint-disable-next-line no-unused-vars */
-import _ from 'lodash';
 import './reset.css';
 import './style.css';
 import ToDoList from './toDo.js';
@@ -13,7 +11,6 @@ document.querySelector('#add-item').addEventListener('keypress', (e) => {
     const task = toDoList.createTask(description.value);
     toDoList.addTask(task);
     handlers.saveLocalSorage(toDoList.data);
-    //localStorage.setItem('toDoList', JSON.stringify(toDoList.data));//local storage function
     description.value = '';
   }
 });
@@ -23,8 +20,6 @@ document.querySelector('#delete-all').addEventListener('click', () => {
     if (task.completed) {
       toDoList.data = removeItem(task, toDoList.data);
       handlers.saveLocalSorage(toDoList.data);
-      //localStorage.setItem('toDoList', JSON.stringify(toDoList.data));//local storage function
-      //const taskList = document.getElementById('main-list');
       handlers.taskList.innerHTML = '';
       toDoList.displayList();
     }
